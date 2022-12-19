@@ -2,26 +2,15 @@ document.addEventListener('DOMContentLoaded', () => {
     const grid = document.querySelector('.grid')
     let squares = Array.from(document.querySelectorAll('.grid div'))
     const scoreDisplay = document.querySelector('#score')
-    const scoreFullDisplay = document.querySelector('#scoreFullDisplay')
     const startButton = document.querySelector('#start-button')
     const width = 10
     let nextRandom = 0
     let timerId
     let score = 0
-    let sound = document.getElementById('sound')
-    let soundButton = document.getElementById('soundButton')
+    const sound = document.getElementById('sound')
+    const soundButton = document.getElementById('soundButton')
     let soundFlag = 0
     let isFirstSoundPlay = true;
-    let linkToVideo = document.getElementById('linkToVideo')
-
-    linkToVideo.addEventListener('mouseover', addGradientText)
-    linkToVideo.addEventListener('mouseout', addGradientText)
-    scoreFullDisplay.addEventListener('mouseover', addGradientText, true)
-    scoreFullDisplay.addEventListener('mouseout', addGradientText, true)
-
-    function addGradientText(event) {
-        event.target.classList.toggle('gradirnt-text')
-    }
 
     const color = [
         'brown',
@@ -29,6 +18,14 @@ document.addEventListener('DOMContentLoaded', () => {
         'chartreuse',
         'forestgreen',
         'teal'
+    ]
+
+    const classBlockList = [
+        'url(images/picture.jpg)',
+        'url(images/chess.jpg)',
+        'url(images/.jpg)',
+        'url(images/pizza.jpg)',
+        'url(images/clock.jpg)'
     ]
 
     const lTetromino = [
@@ -76,6 +73,9 @@ document.addEventListener('DOMContentLoaded', () => {
     //draw the first rotation in the first tetromino
     function draw() {
         current.forEach(index => {
+            
+            // squares[currentPosition + index].classList.add('block')
+            // squares[currentPosition + index].style.backgroundImage = classBlockList[random]
             squares[currentPosition + index].classList.add('tetromino')
             squares[currentPosition + index].style.backgroundColor = color[random]
         })
@@ -83,6 +83,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function undraw() {
         current.forEach(index => {
+            // squares[currentPosition + index].classList.remove('block')
+            // squares[currentPosition + index].style.backgroundImage = 'none'
             squares[currentPosition + index].classList.remove('tetromino')
             squares[currentPosition + index].style.backgroundColor = ''
         })
@@ -228,8 +230,10 @@ document.addEventListener('DOMContentLoaded', () => {
                 score += 10
                 scoreDisplay.innerHTML= score
                 row.forEach(index => {
+                    // squares[index].classList.remove('block')
                     squares[index].classList.remove('tetromino')
                     squares[index].classList.remove('taken')
+                    //squares[currentPosition + index].style.backgroundImage = 'none'
                     squares[index].style.backgroundColor = ''
                 })
                 const squaresRemoved = squares.splice(i, width)
@@ -243,6 +247,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if(current.some(index => squares[currentPosition + index].classList.contains('taken'))){
             scoreDisplay.innerHTML = 'end'
             clearInterval(timerId)
+            document.removeEventListener('keyup', control)
         }
     }
 

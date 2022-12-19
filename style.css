@@ -30,6 +30,14 @@ body{
     width: 30px;
 }
 
+.block {
+    background-image: url('images/blank.jpg') no-repeat center;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}  
+
 .tetromino {
     background-color: blueviolet;
 }
@@ -59,7 +67,7 @@ footer a {
     text-decoration: none;
 }
 
-.gradirnt-text {
+.golografic:hover{
     background: linear-gradient(90deg, red, pink, blueviolet, yellow, #C8A2C8,#b0f542);
     background-size: 400%;
     -webkit-text-fill-color: transparent;
