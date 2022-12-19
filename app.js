@@ -7,6 +7,10 @@ document.addEventListener('DOMContentLoaded', () => {
     let nextRandom = 0
     let timerId
     let score = 0
+    let sound = document.getElementById('sound')
+    let soundButton = document.getElementById('soundButton')
+    let soundFlag = 0
+    let isFirstSoundPlay = true;
 
     const color = [
         'brown',
@@ -197,8 +201,13 @@ document.addEventListener('DOMContentLoaded', () => {
             nextRandom = Math.floor(Math.random()*theTetrominoes.length)
             displayShape()
         }
-
+        if(soundFlag == 0 && isFirstSoundPlay){
+            sound.play()
+            soundFlag = 1
+            isFirstSoundPlay = false
+        }
     })
+
 
     function addScore() {
         for(let i = 0; i < 199; i += width){
@@ -225,4 +234,16 @@ document.addEventListener('DOMContentLoaded', () => {
             clearInterval(timerId)
         }
     }
+
+    function playPause() {
+        if(soundFlag == 0){
+            soundFlag = 1
+            sound.play();}
+            else{
+                soundFlag = 0
+                sound.pause()
+            }
+        }
+    soundButton.addEventListener('click', playPause)
+
 })
