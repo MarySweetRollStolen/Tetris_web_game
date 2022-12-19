@@ -2,6 +2,8 @@ body{
     height: 100%;
     letter-spacing: 2px;
     word-spacing: 3px;
+    font-family: 'Kanit', sans-serif;
+    font-family: 'Quantico', sans-serif;
 }
 
 .colum-container {
