@@ -2,6 +2,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const grid = document.querySelector('.grid')
     let squares = Array.from(document.querySelectorAll('.grid div'))
     const scoreDisplay = document.querySelector('#score')
+    const scoreFullDisplay = document.querySelector('#scoreFullDisplay')
     const startButton = document.querySelector('#start-button')
     const width = 10
     let nextRandom = 0
@@ -11,6 +12,16 @@ document.addEventListener('DOMContentLoaded', () => {
     let soundButton = document.getElementById('soundButton')
     let soundFlag = 0
     let isFirstSoundPlay = true;
+    let linkToVideo = document.getElementById('linkToVideo')
+
+    linkToVideo.addEventListener('mouseover', addGradientText)
+    linkToVideo.addEventListener('mouseout', addGradientText)
+    scoreFullDisplay.addEventListener('mouseover', addGradientText, true)
+    scoreFullDisplay.addEventListener('mouseout', addGradientText, true)
+
+    function addGradientText(event) {
+        event.target.classList.toggle('gradirnt-text')
+    }
 
     const color = [
         'brown',

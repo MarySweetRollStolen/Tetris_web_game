@@ -1,5 +1,7 @@
 body{
     height: 100%;
+    letter-spacing: 2px;
+    word-spacing: 3px;
 }
 
 .colum-container {
@@ -45,4 +47,31 @@ body{
 .mini-grid div {
     height: 25px;
     width: 25px;
+}
+
+footer {
+    text-align: center;
+    padding-top: 3%;
+}
+
+footer a {
+    color: black;
+    text-decoration: none;
+}
+
+.gradirnt-text {
+    background: linear-gradient(90deg, red, pink, blueviolet, yellow, #C8A2C8,#b0f542);
+    background-size: 400%;
+    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
+    animation: animateTextGradient 10s linear infinite;
+}
+
+@keyframes animateTextGradient{
+    0%{
+        background-position: 0%;
+    }
+    100%{
+        background-position:400%;
+    }
 }
