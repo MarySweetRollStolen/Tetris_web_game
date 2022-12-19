@@ -1,18 +1,19 @@
 .container {
     display: flex;
+    justify-content: center;
 }
 
 .grid {
-    width: 200px;
-    height: 400px;
+    width: 300px;
+    height: 600px;
     display: flex;
     flex-wrap: wrap;
     background-color: yellowgreen;
 }
 
 .grid div {
-    height: 20px;
-    width: 20px;
+    height: 30px;
+    width: 30px;
 }
 
 .tetromino {
@@ -21,8 +22,8 @@
 
 .mini-grid {
     margin-left: 50px;
-    width: 80px;
-    height: 80px;
+    width: 100px;
+    height: 100px;
     display: flex;
     flex-wrap: wrap;
     background-color: darkred;
@@ -30,6 +31,6 @@
 
 
 .mini-grid div {
-    height: 20px;
-    width: 20px;
+    height: 25px;
+    width: 25px;
 }
