@@ -208,15 +208,16 @@ document.addEventListener('DOMContentLoaded', () => {
         if(timerId){
             clearInterval(timerId)
             timerId = null
+            startButton.innerHTML = 'play'
         } else {
             draw()
             timerId = setInterval(moveDown, 300)
             nextRandom = Math.floor(Math.random()*theTetrominoes.length)
             displayShape()
+            startButton.innerHTML = 'pause'
         }
         if(soundFlag == 0 && isFirstSoundPlay){
-            sound.play()
-            soundFlag = 1
+            playPause()
             isFirstSoundPlay = false
         }
     })
@@ -254,10 +255,12 @@ document.addEventListener('DOMContentLoaded', () => {
     function playPause() {
         if(soundFlag == 0){
             soundFlag = 1
-            sound.play();}
+            sound.play()
+            soundButton.style.backgroundImage = "url('images/on.jpg')"}
             else{
                 soundFlag = 0
                 sound.pause()
+                soundButton.style.backgroundImage = "url('images/off.jpg')"
             }
         }
     soundButton.addEventListener('click', playPause)

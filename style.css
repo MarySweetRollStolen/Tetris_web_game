@@ -24,12 +24,19 @@ body{
     height: 600px;
     display: flex;
     flex-wrap: wrap;
-    background-color: yellowgreen;
+    background-color: gray;
 }
 
 .grid div {
     height: 30px;
     width: 30px;
+}
+
+.side-container {
+    margin-left: 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
 .block {
@@ -45,18 +52,55 @@ body{
 }
 
 .mini-grid {
-    margin-left: 50px;
     width: 100px;
     height: 100px;
     display: flex;
     flex-wrap: wrap;
-    background-color: darkred;
+    background-color: grey;
 }
 
 
 .mini-grid div {
     height: 25px;
     width: 25px;
+}
+
+.mini-button {
+    height: 30px;
+    width: 30px;
+    color: white;
+}
+
+.mini-button:hover {
+    border-image-slice: 1;
+    border-image-source: linear-gradient(to left, #743ad5, #d53a9d, yellow);
+    outline-style: ridge;
+}
+
+#soundButton {
+    background-image: url('images/off.JPG');
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+#rulesButton {
+    background-image: url('images/bulb.jpg');
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+#start-button{
+    width: 60px;
+    background-color: white;
+    border-radius: 2px;
+    border: black 3px;
+    font-family: 'Quantico', sans-serif;
+    letter-spacing: 2px;
+    word-spacing: 3px;
 }
 
 footer {
@@ -70,7 +114,7 @@ footer a {
 }
 
 .golografic:hover{
-    background: linear-gradient(90deg, red, pink, blueviolet, yellow, #C8A2C8,#b0f542);
+    background: linear-gradient(90deg, red, pink, blueviolet, yellow, #C8A2C8, #b0f542, red);
     background-size: 400%;
     -webkit-text-fill-color: transparent;
     -webkit-background-clip: text;
