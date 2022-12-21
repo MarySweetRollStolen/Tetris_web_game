@@ -5,13 +5,13 @@ document.addEventListener('DOMContentLoaded', () => {
     const startButton = document.querySelector('#start-button')
     const width = 10
     let nextRandom = 0
+    let nextRandomColor = 0
     let timerId
     let score = 0
     const sound = document.getElementById('sound')
     const soundButton = document.getElementById('soundButton')
     let soundFlag = 0
     let isFirstSoundPlay = true;
-
 
     document.getElementById('rulesButton').addEventListener('click', () => {
         document.querySelector('.popup-back').style.display = "flex"
@@ -21,22 +21,30 @@ document.addEventListener('DOMContentLoaded', () => {
         document.querySelector('.popup-back').style.display = "none"
     })
 
+    document.getElementById('musicAuthorButton').addEventListener('click', () => {
+        window.open("https://www.youtube.com/watch?v=hNE2CLn9uk0");
+    })
 
     const color = [
-        'brown',
-        'crimson',
+        'yellow',
+        'blueviolet',
         'chartreuse',
-        'forestgreen',
-        'teal'
+        'red',
+        'pink',
+        '#d53a9d',
+        'black',
+        'blue',
+        'white',
+        '#b0f542'
     ]
 
-    const classBlockList = [
-        'url(images/picture.jpg)',
-        'url(images/chess.jpg)',
-        'url(images/.jpg)',
-        'url(images/pizza.jpg)',
-        'url(images/clock.jpg)'
-    ]
+    // const classBlockList = [
+    //     'url(images/picture.jpg)',
+    //     'url(images/chess.jpg)',
+    //     'url(images/.jpg)',
+    //     'url(images/pizza.jpg)',
+    //     'url(images/clock.jpg)'
+    // ]
 
     const lTetromino = [
         [1, width+1, width*2+1, 2],
@@ -77,6 +85,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     let currentRotation = 0
     let random = Math.floor(Math.random()*theTetrominoes.length)
+
     let current = theTetrominoes[random][currentRotation]
     let currentPosition = 4
 
@@ -126,7 +135,9 @@ document.addEventListener('DOMContentLoaded', () => {
         if(current.some(index => squares[currentPosition + index +width].classList.contains('taken'))) {
             current.forEach(index => squares[currentPosition + index].classList.add('taken'))
             random = nextRandom
+            //nextRandomColor = nextRandom
             nextRandom = Math.floor(Math.random()*theTetrominoes.length)
+            // nextRandomColor = Math.floor(Math.random()*color.length)
             current = theTetrominoes[random][currentRotation]
             currentPosition = 4
             draw()

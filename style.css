@@ -105,6 +105,14 @@ body{
     background-size: cover;
 }
 
+#musicAuthorButton {
+    background-image: url('images/music.jpg');
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
 .slidecontainer {
     width: 80%;
     border: 3px black;
@@ -148,7 +156,6 @@ body{
     background-color: white;
     font-family: 'Quantico', sans-serif;
     font-size: 25px;
-    /* font-weight: 200; */
     text-transform: uppercase;
     letter-spacing: 5px;
     border: black 15px;
