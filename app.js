@@ -12,6 +12,7 @@ document.addEventListener('DOMContentLoaded', () => {
     let soundFlag = 0
     let isFirstSoundPlay = true;
 
+
     document.getElementById('rulesButton').addEventListener('click', () => {
         document.querySelector('.popup-back').style.display = "flex"
     })
@@ -19,6 +20,7 @@ document.addEventListener('DOMContentLoaded', () => {
     document.getElementById('buttonPopUpClose').addEventListener('click', () => {
         document.querySelector('.popup-back').style.display = "none"
     })
+
 
     const color = [
         'brown',
@@ -212,6 +214,18 @@ document.addEventListener('DOMContentLoaded', () => {
         })
     }
 
+    function changeSpeed() {
+        if(timerId){
+        let slider = document.getElementById("speedRange")
+        clearInterval(timerId)
+        draw()
+        timerId = setInterval(moveDown, slider.value)
+        nextRandom = Math.floor(Math.random()*theTetrominoes.length)
+        displayShape()
+        }
+    }
+    document.getElementById('speedRange').addEventListener('change', changeSpeed)
+
     startButton.addEventListener('click', () =>{
         if(timerId){
             clearInterval(timerId)
@@ -219,7 +233,8 @@ document.addEventListener('DOMContentLoaded', () => {
             startButton.innerHTML = 'play'
         } else {
             draw()
-            timerId = setInterval(moveDown, 300)
+            let slider = document.getElementById("speedRange")
+            timerId = setInterval(moveDown, slider.value)
             nextRandom = Math.floor(Math.random()*theTetrominoes.length)
             displayShape()
             startButton.innerHTML = 'pause'
