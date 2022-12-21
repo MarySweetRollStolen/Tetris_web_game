@@ -12,6 +12,14 @@ document.addEventListener('DOMContentLoaded', () => {
     let soundFlag = 0
     let isFirstSoundPlay = true;
 
+    document.getElementById('rulesButton').addEventListener('click', () => {
+        document.querySelector('.popup-back').style.display = "flex"
+    })
+    
+    document.getElementById('buttonPopUpClose').addEventListener('click', () => {
+        document.querySelector('.popup-back').style.display = "none"
+    })
+
     const color = [
         'brown',
         'crimson',
