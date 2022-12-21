@@ -17,6 +17,7 @@ body{
     display: flex;
     justify-content: center;
     flex: 1 1 auto;
+    
 }
 
 .grid {
@@ -25,6 +26,7 @@ body{
     display: flex;
     flex-wrap: wrap;
     background-color: gray;
+    outline-style: ridge;
 }
 
 .grid div {
@@ -38,6 +40,7 @@ body{
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    outline-style: ridge;
 }
 
 .block {
@@ -60,6 +63,7 @@ body{
     background-color: grey;
     margin-top: 10px;
     margin-bottom: 10px;
+    outline-style: ridge;
 }
 
 
